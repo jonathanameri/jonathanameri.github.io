@@ -64,6 +64,7 @@
         This will ensure that in the case that a researcher loses internet connection, the data they collect while offline will make it to 
         our backend.
     </p>
+    <h3>Mapping</h3>
     <p>
         For mapping, I suggest that the DXG uses Mapbox for this project. They offer a JavaScript library called 'Mapbox GL JS' which allows 
         for integration of maps into React apps. This would be the easiest and fastest way to develop a map that can display our stored geolocation
@@ -74,12 +75,18 @@
     
     <h3>Back-End Tech</h3>
     <p>
-        For this project, I suggest that we use Supabase as our backend. Supabase is a Backend as a Service (BaaS), which means that it gives us
-        access to a PostgreSQL database, file storage, and user management. For a smaller project like this one, where there is only 5 or so
-        users with access to update the database, supabase is a great choice, as it provides 
+        For this project, I suggest that we use Supabase as our backend. Supabase is a Backend as a Service (BaaS), which means we would not have to create
+        our own backend. Rather, supabase gives us access to a PostgreSQL database, file storage, and user management. For a smaller project like this 
+        one, where there is only 5 or so users with access to update the database, we don't need necessarily the most robust and efficient backend. Supabase 
+        is a convenient way to quickly and easily develop our mapping app. It gives us the functionality required for this project, including authentication and
+        file storage. Using supabase's authentication service, we can easily create and manage logins for the researchers, and ensure that only users with 
+        permission are allowed to directly access the database. Supabase also automatically generates API calls that you can use within your app based on the database
+        as it changes, which would help speed up the development workflow.
     </p>
     <h3>Hosting</h3>
-    <p></p>
+    <p>
+        I suggest that we host the app using a service such as Firebase. 
+    </p>
 
 </body>
 </html>
