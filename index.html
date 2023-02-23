@@ -57,20 +57,23 @@
         for this project because the client is looking for an application that works on both iOS and Android devices, as well as the web. 
         With React Native, our development team can write code once and publish the application for multiple platforms. In addition, React is 
         the most popular JavaScript framework, so there is an abundance of documentation and additional libraries available online. I also suggest
-        using the Expo library, which provides us with access to pre-made React components for features such as using the device's camera, local 
-        storage, and the device's geolocation data. Since the client is looking to track images and the location of the POI, being able to build
-        these features is necessary. To handle offline usage for the researchers, I recommend using the local storage of a researchers device 
-        to store data about a POI, and have the app make interval connection requests to the backend to eventually permanently store the data. 
-        This will ensure that in the case that a researcher loses internet connection, the data they collect while offline will make it to 
-        our backend.
+        using the Expo library, which provides us with access to pre-made React Native components for features such as using the device's camera, local 
+        storage, and the device's geolocation data. This is essential for the native versions of our app, but would also give us the option to implement
+        all features of the app for the web version. Since the client is looking to track images and the location of the POI, being able to take pictures
+        and track location data from the device is necessary. To handle offline usage for the researchers, I recommend utilizing the local storage 
+        of a researchers device through Expo components to store data about a POI, and have the app make interval connection requests to the backend 
+        to eventually permanently store the data. This will ensure that in the case that a researcher loses internet connection, the 
+        data they collect while offline will still make it to our backend.
     </p>
     <h3>Mapping</h3>
     <p>
-        For mapping, I suggest that the DXG uses Mapbox for this project. They offer a JavaScript library called 'Mapbox GL JS' which allows 
+        To cover mapping for this project, I suggest that the DXG uses Mapbox. They offer a JavaScript library called 'Mapbox GL JS' which allows 
         for integration of maps into React apps. This would be the easiest and fastest way to develop a map that can display our stored geolocation
-        data points as points of interest, as well as the additional description of each point. Mapbox is a well known service, so it has a ton 
-        of documentation on their site which would aid the development process. Additionally, since the DXG has already used Mapbox, our 
-        development team would have no issue with using it for this project.
+        data points as points of interest, as well as the additional description of each point. Mapbox has a ton 
+        of documentation on their site which would aid the development process. Using MapBox GL, the only data required
+        to place markers on a map are the latitude/longitude values for each point of interest. Mapbox would allow us to make the markers clickable so that we 
+        can present the additional information from the researchers for each point. Additionally, since the DXG has already used Mapbox, our 
+        development team would be familiar with the required API calls, and have no issue with integrating it into this project.
     </p>
     
     <h3>Back-End Tech</h3>
@@ -79,16 +82,19 @@
         our own backend. Rather, supabase gives us access to a PostgreSQL database, file storage, and user management. For a smaller project like this 
         one, where there is only 5 or so users with access to update the database, we don't need necessarily the most robust and efficient backend. The free version of
         supabase would likely suffice, helping us save on costs, while not sacrificing functionality. If the project were to be scaled up, Supabase would allow us 
-        to easily increase capacity for an increase in monthly charges. Supabase gives us the functionality required for this project, including authentication 
+        to easily increase capacity for an increase in monthly charges. Supabase gives us the full functionality required for a backend for this project, including authentication 
         and file storage. Using supabase's authentication service, we can easily create and manage logins for the researchers, and ensure that only 
         users with permission are allowed to directly access the database. Supabase also automatically generates API calls that you can use within your app based on the database
-        as it changes, which would help speed up the development workflow.
+        as it changes, which would help speed up the development workflow. When it comes to the database itself, we could either store latitude/longitude as
+        floating points, or we could utilize a PostgreSQL library such as PostGIS, which has data types specifically for precise locations.
     </p>
-    <h3>Hosting</h3>
+    <h3>Hosting for web</h3>
     <p>
         I suggest that we host the app using a service such as Firebase. Since we are not developing our own backend, it would make sense to use one of many
         hosting services available online. Firebase is a great option because it makes deploying an application extremely easy at low cost. For a small project
-        such as this, the free version of Firebase would suffice. 
+        such as this, the free version of Firebase would suffice. If the user-base became too large for the free version of Firebase, we 
+        could easily scale up by switching to the premium version of Firebase. Firebase has been around since 2012, and has built a reputation
+        of being a reliable way of deploying your application to the web.
     </p>
 
 </body>
